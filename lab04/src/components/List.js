@@ -1,11 +1,25 @@
+function Task(props) {
+	return (
+		<li>
+			{props.description}
+			<input type="checkbox" checked={props.completed} readOnly />
+		</li>
+	);
+}
+
+// This is a "stateless functional component"
 function List(props) {
+
 	return (
 		<div>
 			<h1>{ props.heading }</h1>
 			<ul>
-				<li>Learn React</li>
-				<li>Learn JSX</li>
-				<li>Build a React App</li>
+				{ props.tasks.map(task => 
+					<Task
+						description={task.description}
+						completed={task.completed}
+					/>
+				)}
 			</ul>
 		</div>
 	);
