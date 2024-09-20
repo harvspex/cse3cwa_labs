@@ -1,0 +1,2 @@
+# lab-6
+In this lab, you will practice setting up the backend using Sequelize and Docker containers. Follow the lab steps provided. For reference, you can also check the solutions branch.  If you need to see the PostgreSQL settings, refer to the Postgre branch.
