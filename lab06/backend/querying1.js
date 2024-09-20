@@ -68,11 +68,33 @@ Article.findByPk(2)
   console.log();
 })
 
-// Exercise 1
+// Exercise 1: Print out the contents of articles whose id is either 1 or 3.
 // *** TODO: Insert code here ***
+.then(() => Article.findAll({
+  where: {
+    id:[1, 3]
+  }
+}))
+.then(articles => {
+  console.log('# Exercise 1: All articles with id either 1 or 3');
+  articles.forEach(article => {
+    console.log(article.dataValues);
+  })
+  console.log();
+})
 
-// Exercise 2
+// Exercise 2: Retrieve the article record which has an id of 2 and update it
+// so that its content is now "Sequelize is the worst ORM ever!". 
 // *** TODO: Insert code here ***
+.then(() => Article.findByPk(2))
+.then(article => {
+  console.log('# Exercise 2: Update article with id=2');
+  return article.update({title: "Sequelize is the worst ORM ever!"})
+})
+.then(article => {
+  console.log(article.dataValues);
+  console.log();
+})
 
 // Close the database connection.
 .catch(console.error).then(() => db.close());
