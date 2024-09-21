@@ -45,10 +45,41 @@ Employees.findOne({ include: [Companies] }).then(employee => {
 })
 
 // Exercise 3
+/* Find the name of the company that "Peter Rabbit" works for by searching
+ * for the name "Peter Rabbit" in the employees table.
+ * Hint: construct your query via the employees model (Employees.findOne),
+ * using the appropriate "where" clause and "include" option. 
+ */
 // *** TODO: Insert code here ***
+.then(() => Employees.findOne(
+  {
+    where: { name: 'Peter Rabbit' },
+    include: [ Companies ]
+  }))
+.then(employee => {
+  console.log(`# Exercise 3:`)
+  if (employee && employee.company) {
+    console.log(`# Employee: ${ employee.name }`);
+    console.log(`# Company: ${ employee.company.name }`)
+  } else {
+    console.log('Employee not found');
+  }
+})
 
 // Exercise 4
+/* Find the company with the highest profit and list its employees.
+ * Hint: if you use .findOne() with an "order" clause, the sorting occurs
+ * before limiting the result to one record.
+ */
 // *** TODO: Insert code here ***
+.then(() => Companies.findOne({
+  order: [[ 'profit', 'DESC' ]]
+}))
+.then(company => {
+  console.log(`# Exercise 4:`)
+  console.log(`# Company: ${ company.name }`)
+  console.log(`# Profit: ${ company.profit }`)
+})
 
 // Exercise 5
 // *** TODO: Insert code here ***  
