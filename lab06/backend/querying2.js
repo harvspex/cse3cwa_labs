@@ -83,5 +83,13 @@ Employees.findOne({ include: [Companies] }).then(employee => {
 
 // Exercise 5
 // *** TODO: Insert code here ***  
+/* Try inserting a new employee into the employees table.
+ * For example, inserting a new employee in company id=1 
+ */
+.then(() => Employees.create({
+  name: 'Peter Junior',
+  age: 2,
+  companyId: 1
+}))
 
 .catch(console.error).then(() => db.close());
