@@ -25,8 +25,14 @@ router.delete('/:postId', (req, res) => {
 
 // Create: POST /posts/
 // TODO: Add a "Create" action
+router.post('/', (req, res) => {
+  res.json({ todo: 'Create post' });
+});
 
 // Update: PUT /posts/:postId/
 // TODO: Add an "Update" action
+router.put('/:postId', (req, res) => {
+  res.json({ todo: 'Update post' });
+});
 
 module.exports = router;
