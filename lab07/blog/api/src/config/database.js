@@ -5,7 +5,7 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const config = {
     database: nodeEnv + '_db',
     user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASS,
+    password: process.env.MYSQL_PASSWORD,
     host: process.env.MYSQL_REMOTE_HOST,
     port: process.env.MYSQL_REMOTE_PORT,
     dialect: 'mysql'
